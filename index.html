@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Notas | UdeC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Universidad de Cartagena</h1>
+    </header>
+
+    <main class="container">
+        <section id="welcome-screen" class="view active">
+            <div class="welcome-text">
+                <h2>Bienvenido, estudiante de la Universidad de Cartagena</h2>
+                <p>Calcula la nota mínima que necesitas para alcanzar tus metas. ¡Selecciona una opción para empezar!</p>
+            </div>
+            <div class="menu">
+                <button id="btn-corte" class="menu-button">
+                    <i class="fas fa-file-signature"></i>
+                    <span>Calcular nota para un Corte</span>
+                </button>
+                <button id="btn-semestre" class="menu-button">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Calcular nota para el Semestre</span>
+                </button>
+            </div>
+        </section>
+
+        <section id="corte-calculator" class="view">
+            <button class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Menú</button>
+            <h2><i class="fas fa-file-signature"></i> Nota necesaria para el Corte</h2>
+            <form id="form-corte">
+                <div class="input-group">
+                    <label for="total-notas-corte">¿Cuántas notas son en total en el corte?</label>
+                    <input type="number" id="total-notas-corte" min="2" max="8" placeholder="Ej: 5" required>
+                </div>
+                <div class="input-group">
+                    <label for="notas-actuales-corte">¿Cuántas notas ya tienes?</label>
+                    <input type="number" id="notas-actuales-corte" min="0" max="8" placeholder="Ej: 3" required>
+                </div>
+                <div id="notas-container"></div>
+                <button type="submit" class="calculate-btn">Calcular Nota Necesaria</button>
+            </form>
+            <div id="result-corte" class="result-display"></div>
+        </section>
+
+        <section id="semestre-calculator" class="view">
+            <button class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Menú</button>
+            <h2><i class="fas fa-graduation-cap"></i> Nota necesaria para el Semestre</h2>
+            <p class="info">Ingresa las notas de tus tres cortes. Se calculará la nota que necesitas en un <strong>examen final (40%)</strong> para aprobar.</p>
+            <form id="form-semestre">
+                <div class="input-group">
+                    <label for="sem-corte1">Nota del Corte 1</label>
+                    <input type="number" id="sem-corte1" step="0.01" min="0" max="5" placeholder="Ej: 4.2" required>
+                </div>
+                <div class="input-group">
+                    <label for="sem-corte2">Nota del Corte 2</label>
+                    <input type="number" id="sem-corte2" step="0.01" min="0" max="5" placeholder="Ej: 2.8" required>
+                </div>
+                <div class="input-group">
+                    <label for="sem-corte3">Nota del Corte 3</label>
+                    <input type="number" id="sem-corte3" step="0.01" min="0" max="5" placeholder="Ej: 3.5" required>
+                </div>
+                <button type="submit" class="calculate-btn">Calcular Nota del Final</button>
+            </form>
+            <div id="result-semestre" class="result-display"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
